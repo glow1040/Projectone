@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="../D2/style.css">
+		<title>teqport reg.Form</title>
+    </head>
+	<style>
+		img {
+    border: 1px solid #00FF00;
+     display: block;
+     position: absolute;
+     top:70%;
+     left:70%;
+     right: 70%;
+     bottom: 70%;
+      margin-left: 25px;
+      margin-right: 25px;
+      border-radius: 50%;
+       width: 25%;
+       }
+       #img{
+                width: 25px;;
+                height:25px;
+               }
+     .box input[type]{
+    border: 0;
+    background:none;
+    display: block;
+    margin: 20px;
+    text-align: center;
+    border: 2px solid #34495e;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition:0.25s;
+}
+.box input[type = "Email"]{
+    width: 280px;
+    border-color: #2ecc71;     
+}
+
+
+.box input[type = "number"]{
+    border: 0;
+    background:none;
+    display: block;
+    margin: 20px;
+    text-align: center;
+    border: 2px solid #34495e;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition:0.25s;
+} 
+.box input[type = "number"]{
+    width: 280px;
+    border-color: #2ecc71;     
+}
+  </style>
+	  <body>
+		  <img src="Teq.jpg" width="300px" height="300px">
+	             <form class="box" action="Form.html" method="post">
+					<h1>Registration Form</h1>
+                    <input type="text" id="fname" placeholder="First Name" required>
+                    <input type="text" id="lname" placeholder="Last Name" required>
+                    <input type="text" id="address" placeholder="address" required> 
+                    <input type="text" id="nationality" placeholder="nationality" requied>
+                    <input type="number" id="pnumber" placeholder="phone number" required >
+                    <input type="email" id="email" placeholder="Your email" required>
+                    <button onclick="submitform()">Submit</button>
+                    <div id="data"> </div>
+                </form> <br><br>	
+    </body>
+    <script lang="javascript">
+            function submitform(){
+             document.getElementById("data").innerHTML = "";
+             var fname = document.getElementById("fname").value;
+             var lname = document.getElementById("lname").value;
+             var nationality = document.getElementById("nationality").value;
+             var pnumber = document.getElementById("pnumber").value;
+             var email = document.getElementById("email").value;
+             if (fname !== ""){
+             if (lname !== ""){
+             if (nationality !== ""){
+             if (pnumber !== "" && pnumber.length === 11 && parseInt (pnumber) > 0 ){
+             var sp = email.split ("@");
+             var spp = email.split (".");
+             if (email !== "" && sp.length === 2 && spp.length >= 2){
+             var res = '<h1>SUBMITTED DATA</h1><br><p>First Name: '+fname+'</p><br><p>Last Name: '+lname+'</p><br><p>Nationality: '+nationality+'</p><br><p>Phone Number: '+pnumber+'</p><br><p>Email Address: '+email+'</p>';
+             document.getElementById("data").innerHTML = res;
+             document.getElementById("fname").value = "";
+             document.getElementById("lname").value = "";
+             document.getElementById("nationality").value = "";
+             document.getElementById("plumber").value = "";
+             document.getElementById("email").value ="";
+             
+             }else {
+             alert ("Email address is invalid!");
+             }
+             }else {
+             alert ("Phone number field is invalid!");
+             }
+             }else {
+             alert ("Nationality field is required!");
+             }
+             }else {
+             alert ("Last name field is required!");
+             }
+             }else {
+             alert ("First name field is required!");
+             }
+            }
+        </script> 
+</html>
